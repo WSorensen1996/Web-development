@@ -57,11 +57,8 @@ def test_search_in_python_org():
 
     try: 
         #Test all links
-        assert find_and_click(By.LINK_TEXT,"Get in touch"), back()
-        assert find_and_click(By.LINK_TEXT,"All projects"), back()
-        assert find_and_click(By.LINK_TEXT,"About me"), back()
-        assert find_and_click(By.LINK_TEXT,"Contact me"), back()
-        assert find_and_click(By.LINK_TEXT,"Logout"), back()
+        texts = ["Get in touch", "All projects", "About me", "Contact me", "Logout"]
+        assert all(find_and_click(By.LINK_TEXT, x) for x in texts), back()
 
         #Get form
         driver.get("http://127.0.0.1:5000/register")
